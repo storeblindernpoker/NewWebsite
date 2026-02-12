@@ -324,10 +324,140 @@ async function renderLeaderboard() {
   `;
 }
 
+// --- Ambient floating card suits ---
+function initAmbientCanvas() {
+  const canvas = document.getElementById('ambient-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let w, h;
+  const suits = ['♠', '♣', '♥', '♦'];
+  const particles = [];
+  const isMobile = window.innerWidth < 768;
+  const PARTICLE_COUNT = isMobile ? 15 : 30;
+  let lastScrollY = window.pageYOffset;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  function createParticle(randomY) {
+    return {
+      x: Math.random() * (w || window.innerWidth),
+      y: randomY ? Math.random() * (h || window.innerHeight) : (h || window.innerHeight) + Math.random() * 100,
+      size: Math.random() * 22 + 8,
+      suit: suits[Math.floor(Math.random() * suits.length)],
+      opacity: Math.random() * 0.06 + 0.012,
+      speedX: (Math.random() - 0.5) * 0.15,
+      speedY: -(Math.random() * 0.12 + 0.03),
+      parallaxFactor: Math.random() * 0.12 + 0.02,
+      rotation: Math.random() * Math.PI * 2,
+      rotationSpeed: (Math.random() - 0.5) * 0.002,
+    };
+  }
+
+  resize();
+  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(createParticle(true));
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    const currentScrollY = window.pageYOffset;
+    const scrollDelta = currentScrollY - lastScrollY;
+    lastScrollY = currentScrollY;
+
+    for (const p of particles) {
+      // Parallax shift based on scroll
+      p.y += scrollDelta * p.parallaxFactor;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.font = `${p.size}px serif`;
+      ctx.fillStyle = (p.suit === '♥' || p.suit === '♦')
+        ? `rgba(160, 72, 72, ${p.opacity})`
+        : `rgba(201, 168, 76, ${p.opacity * 0.7})`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(p.suit, 0, 0);
+      ctx.restore();
+
+      // Drift
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotationSpeed;
+
+      // Wrap around edges
+      if (p.y < -40) { p.y = h + 40; p.x = Math.random() * w; }
+      if (p.y > h + 80) { p.y = -40; p.x = Math.random() * w; }
+      if (p.x < -40) p.x = w + 40;
+      if (p.x > w + 40) p.x = -40;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  draw();
+}
+
+// --- Scroll-driven effects ---
+function initScrollEffects() {
+  const nav = document.querySelector('.nav');
+  const scrollGlow = document.querySelector('.scroll-glow');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0;
+
+        // Nav warm accent on scroll
+        if (nav) {
+          nav.classList.toggle('nav--scrolled', scrollY > 50);
+        }
+
+        // Moving warm glow that follows scroll position
+        if (scrollGlow) {
+          const yPos = 15 + progress * 70;
+          scrollGlow.style.background = `radial-gradient(ellipse 600px 500px at 50% ${yPos}%, rgba(122, 53, 53, 0.06), transparent)`;
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+// --- 3D tilt on info cards ---
+function initCardTilt() {
+  // Skip on touch devices
+  if ('ontouchstart' in window) return;
+
+  $$('.info-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(800px) rotateX(${y * -5}deg) rotateY(${x * 5}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initReveal();
+  initAmbientCanvas();
+  initScrollEffects();
+  initCardTilt();
   renderEventsPreview();
   renderEventsPage();
   renderLeaderboard();
