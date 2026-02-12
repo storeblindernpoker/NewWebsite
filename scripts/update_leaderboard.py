@@ -85,6 +85,8 @@ def build_leaderboard(players, previous_ranks, season, rounds):
             "previousRank": prev_rank,
             "pseudonym": p["pseudonym"],
             "points": p["points"],
+            "highestPoints": p["highestPoints"],
+            "lowestPoints": p["lowestPoints"],
         })
 
     return {
@@ -112,7 +114,7 @@ def main():
         "--rounds",
         type=int,
         default=None,
-        help="Number of rounds played. If omitted, keeps the existing value.",
+        help="Number of rounds played. If omitted, auto-increments the existing value by 1.",
     )
 
     args = parser.parse_args()
@@ -129,7 +131,12 @@ def main():
             existing = json.load(f)
 
     season = args.season or existing.get("season", f"Spring {date.today().year}")
-    rounds = args.rounds if args.rounds is not None else existing.get("rounds", 0)
+    if args.rounds is not None:
+        rounds = args.rounds
+    else:
+        # Auto-increment rounds by 1
+        rounds = existing.get("rounds", 0) + 1
+        print(f"   Auto-incrementing rounds: {rounds - 1} → {rounds}")
 
     # Parse the CSV
     print(f"📂 Reading: {args.csv_file}")

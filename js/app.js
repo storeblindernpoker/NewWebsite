@@ -245,22 +245,59 @@ async function renderLeaderboard() {
   // Stats
   const statsEl = $('#leaderboard-stats');
   if (statsEl) {
+    const leader = data.players[0];
+    const totalPoints = data.players.reduce((sum, p) => sum + p.points, 0);
+    const avgPoints = Math.round(totalPoints / data.players.length);
+
+    // Find biggest climber (largest positive rank change)
+    let biggestClimber = null;
+    let biggestClimb = 0;
+    data.players.forEach(p => {
+      const climb = p.previousRank - p.rank;
+      if (climb > biggestClimb) { biggestClimb = climb; biggestClimber = p; }
+    });
+
     statsEl.innerHTML = `
+      <div class="stat-card">
+        <div class="stat-card__value">${data.season}</div>
+        <div class="stat-card__label">Season</div>
+      </div>
       <div class="stat-card">
         <div class="stat-card__value">${data.players.length}</div>
         <div class="stat-card__label">Players</div>
       </div>
       <div class="stat-card">
         <div class="stat-card__value">${data.rounds}</div>
-        <div class="stat-card__label">Rounds Played</div>
+        <div class="stat-card__label">Sessions Played</div>
       </div>
       <div class="stat-card">
-        <div class="stat-card__value">${data.players[0]?.pseudonym || '—'}</div>
-        <div class="stat-card__label">Current Leader</div>
+        <div class="stat-card__value">${avgPoints.toLocaleString()}</div>
+        <div class="stat-card__label">Avg. Points</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-card__value">${data.season}</div>
-        <div class="stat-card__label">Season</div>
+    `;
+  }
+
+  // Leader spotlight
+  const spotlightEl = $('#leader-spotlight');
+  if (spotlightEl && data.players.length) {
+    const leader = data.players[0];
+    const runner = data.players[1];
+    const initials = leader.pseudonym.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    const gap = runner ? leader.points - runner.points : 0;
+
+    spotlightEl.innerHTML = `
+      <div class="leader-card">
+        <div class="leader-card__crown">👑</div>
+        <div class="leader-card__avatar">${initials}</div>
+        <div class="leader-card__info">
+          <div class="leader-card__label">Current Leader</div>
+          <div class="leader-card__name">${leader.pseudonym}</div>
+          <div class="leader-card__points">${leader.points.toLocaleString()} pts</div>
+        </div>
+        <div class="leader-card__stats">
+          ${gap > 0 ? `<div class="leader-card__stat"><span class="leader-card__stat-value">+${gap.toLocaleString()}</span><span class="leader-card__stat-label">Lead over #2</span></div>` : ''}
+          ${leader.highestPoints ? `<div class="leader-card__stat"><span class="leader-card__stat-value">${leader.highestPoints.toLocaleString()}</span><span class="leader-card__stat-label">Peak Points</span></div>` : ''}
+        </div>
       </div>
     `;
   }

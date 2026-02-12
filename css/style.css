@@ -729,6 +729,139 @@ ul, ol {
   box-shadow: 0 4px 24px rgba(122, 53, 53, 0.1);
 }
 
+/* --- Leader Spotlight --- */
+.leader-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  background-color: var(--bg-card);
+  background-image:
+    repeating-linear-gradient(
+      95deg,
+      transparent 0px, transparent 4px,
+      rgba(160, 72, 72, 0.025) 4px, rgba(160, 72, 72, 0.025) 6px
+    ),
+    repeating-linear-gradient(
+      87deg,
+      transparent 0px, transparent 12px,
+      rgba(160, 72, 72, 0.015) 12px, rgba(160, 72, 72, 0.015) 16px
+    );
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.leader-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.05), transparent 50%, rgba(122, 53, 53, 0.05));
+  pointer-events: none;
+}
+
+.leader-card:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow: 0 8px 40px rgba(201, 168, 76, 0.08), 0 0 60px rgba(122, 53, 53, 0.06);
+}
+
+.leader-card__crown {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.leader-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mahogany), var(--mahogany-light));
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
+}
+
+.leader-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.leader-card__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+.leader-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leader-card__points {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.leader-card__stats {
+  display: flex;
+  gap: var(--space-xl);
+  flex-shrink: 0;
+}
+
+.leader-card__stat {
+  text-align: center;
+}
+
+.leader-card__stat-value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.leader-card__stat-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .leader-card {
+    flex-wrap: wrap;
+    padding: var(--space-lg);
+    gap: var(--space-md);
+  }
+
+  .leader-card__stats {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+}
+
 .stat-card__value {
   font-family: var(--font-serif);
   font-size: 2rem;
@@ -1131,53 +1264,7 @@ ul, ol {
   background: linear-gradient(90deg, transparent, rgba(160, 72, 72, 0.25), rgba(201, 168, 76, 0.15), rgba(160, 72, 72, 0.25), transparent);
 }
 
-/* --- Banner Image --- */
-.hero__banner {
-  margin-top: var(--space-3xl);
-  position: relative;
-}
 
-.banner {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 80px rgba(122, 53, 53, 0.08);
-}
-
-.banner__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: grayscale(0.1) contrast(1.05);
-  transition: filter 0.6s var(--ease), transform 8s var(--ease);
-}
-
-.banner:hover .banner__img {
-  filter: grayscale(0) contrast(1.1);
-  transform: scale(1.02);
-}
-
-.banner__overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(10, 10, 10, 0.15) 0%, transparent 30%, transparent 60%, rgba(10, 10, 10, 0.6) 100%),
-    linear-gradient(to right, rgba(122, 53, 53, 0.08), transparent 50%, rgba(122, 53, 53, 0.08));
-  pointer-events: none;
-}
-
-@media (max-width: 640px) {
-  .hero__banner {
-    margin-top: var(--space-2xl);
-  }
-
-  .banner {
-    border-radius: var(--radius-lg);
-  }
-}
 
 /* Hero glow breathing animation */
 @keyframes heroGlow {
