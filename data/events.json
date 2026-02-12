@@ -3,8 +3,10 @@
     "id": "evt-003",
     "title": "Texas Hold'em Semester Tournament Round 3",
     "date": "2026-02-20",
-    "time": "17:00",
+    "time": "18:00",
     "location": "Blindern Campus, Vilhelm Bjerknes Hus, RF Kjelleren",
+    "locationUrl": "https://link.mazemap.com/fd04f1dt",
+    "registrationUrl": "",
     "description": "The third round of the semester-long Texas Hold'em tournament. Players are starting to accumulate points, can we see a change in the leaderboard?",
     "status": "upcoming"
   },
@@ -14,6 +16,8 @@
     "date": "2026-02-06",
     "time": "18:00",
     "location": "Blindern Campus, Vilhelm Bjerknes Hus, RF Kjelleren",
+    "locationUrl": "",
+    "registrationUrl": "",
     "description": "The second round of the semester-long Texas Hold'em tournament. For the first time, we will play at RF Kjelleren.",
     "status": "past"
   },
@@ -23,6 +27,8 @@
     "date": "2026-01-30",
     "time": "16:00",
     "location": "Blindern Campus, Nils Henrik Abels Hus, Abelstua",
+    "locationUrl": "",
+    "registrationUrl": "",
     "description": "The first round of the semester-long Texas Hold'em tournament. Players will accumulate points across multiple rounds to determine the overall champion at the end of the semester.",
     "status": "past"
   },
@@ -32,6 +38,8 @@
     "date": "2026-01-23",
     "time": "16:00",
     "location": "Blindern Campus, Nils Henrik Abels Hus, Abelstua",
+    "locationUrl": "",
+    "registrationUrl": "",
     "description": "The very first Store Blindern Poker night. Where it all began.",
     "status": "past"
   }

@@ -97,6 +97,11 @@ function renderEventCard(event) {
           <span class="event-card__meta-item">📍 ${event.location}</span>
           ${event.buyIn ? `<span class="event-card__meta-item">💰 ${event.buyIn}</span>` : ''}
         </div>
+        ${(event.locationUrl || event.registrationUrl) ? `
+        <div class="event-card__links">
+          ${event.locationUrl ? `<a href="${event.locationUrl}" target="_blank" rel="noopener" class="event-link" onclick="event.stopPropagation()">📍 Location</a>` : ''}
+          ${event.registrationUrl ? `<a href="${event.registrationUrl}" target="_blank" rel="noopener" class="event-link event-link--register" onclick="event.stopPropagation()">✏️ Register</a>` : ''}
+        </div>` : ''}
       </div>
       ${badgeMap[status] || ''}
     </div>
@@ -125,6 +130,11 @@ window.showEventModal = function (eventId) {
         ${event.buyIn ? `<div class="event-modal__detail">💰 Buy-in: ${event.buyIn}</div>` : ''}
         ${event.maxPlayers ? `<div class="event-modal__detail">👥 Max ${event.maxPlayers} players</div>` : ''}
       </div>
+      ${(event.locationUrl || event.registrationUrl) ? `
+      <div class="event-modal__actions">
+        ${event.locationUrl ? `<a href="${event.locationUrl}" target="_blank" rel="noopener" class="event-link">📍 Location</a>` : ''}
+        ${event.registrationUrl ? `<a href="${event.registrationUrl}" target="_blank" rel="noopener" class="event-link event-link--register">✏️ Register</a>` : ''}
+      </div>` : ''}
       <div class="event-modal__description">${event.description}</div>
     </div>
   `;
@@ -488,6 +498,75 @@ function initCardTilt() {
   });
 }
 
+// --- Countdown to next event ---
+async function initCountdown() {
+  const section = $('#countdown-section');
+  if (!section) return;
+
+  const events = await fetchJSON('data/events.json');
+  if (!events) return;
+
+  // Find next upcoming event
+  const now = new Date();
+  const upcoming = events
+    .filter(e => {
+      const [h, m] = (e.time || '23:59').split(':').map(Number);
+      const eventEnd = new Date(e.date + 'T23:59:59');
+      return eventEnd >= now;
+    })
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  if (!upcoming.length) return;
+
+  const event = upcoming[0];
+  const [hours, mins] = (event.time || '18:00').split(':').map(Number);
+  const target = new Date(event.date + 'T00:00:00');
+  target.setHours(hours, mins, 0, 0);
+
+  // Populate info
+  const d = formatDate(event.date);
+  $('#countdown-name').textContent = event.title;
+  $('#countdown-date').textContent = `${d.weekday}, ${d.day} ${d.month} · ${event.time}`;
+  $('#countdown-location').textContent = event.location;
+
+  const daysEl = $('#cd-days');
+  const hoursEl = $('#cd-hours');
+  const minsEl = $('#cd-mins');
+  const secsEl = $('#cd-secs');
+  const countdown = section.querySelector('.countdown');
+
+  function tick() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      // Event is now or past — show "LIVE" state
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minsEl.textContent = '00';
+      secsEl.textContent = '00';
+      countdown.classList.add('countdown--live');
+      section.querySelector('.countdown__label').textContent = '♠ Live Now';
+      return;
+    }
+
+    const totalSecs = Math.floor(diff / 1000);
+    const days = Math.floor(totalSecs / 86400);
+    const hrs = Math.floor((totalSecs % 86400) / 3600);
+    const min = Math.floor((totalSecs % 3600) / 60);
+    const sec = totalSecs % 60;
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hrs).padStart(2, '0');
+    minsEl.textContent = String(min).padStart(2, '0');
+    secsEl.textContent = String(sec).padStart(2, '0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
+  section.style.display = '';
+}
+
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
@@ -495,6 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAmbientCanvas();
   initScrollEffects();
   initCardTilt();
+  initCountdown();
   renderEventsPreview();
   renderEventsPage();
   renderLeaderboard();

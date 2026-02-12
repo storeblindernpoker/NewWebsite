@@ -59,6 +59,44 @@
     <!-- Main Content -->
     <main class="page-content">
 
+      <!-- Next Event Countdown -->
+      <section id="countdown-section" class="countdown-section" style="display:none;">
+        <div class="container">
+          <div class="countdown fade-in">
+            <div class="countdown__info">
+              <div class="countdown__label">Next Session</div>
+              <div class="countdown__event-name" id="countdown-name"></div>
+              <div class="countdown__meta">
+                <span id="countdown-date"></span>
+                <span class="countdown__meta-sep">·</span>
+                <span id="countdown-location"></span>
+              </div>
+            </div>
+            <div class="countdown__timer" id="countdown-timer">
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-days">00</span>
+                <span class="countdown__unit-label">Days</span>
+              </div>
+              <div class="countdown__sep">:</div>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-hours">00</span>
+                <span class="countdown__unit-label">Hours</span>
+              </div>
+              <div class="countdown__sep">:</div>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-mins">00</span>
+                <span class="countdown__unit-label">Min</span>
+              </div>
+              <div class="countdown__sep">:</div>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-secs">00</span>
+                <span class="countdown__unit-label">Sec</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- About Section -->
       <section class="section">
         <div class="container">
