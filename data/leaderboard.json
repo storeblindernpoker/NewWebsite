@@ -5,75 +5,321 @@
   "players": [
     {
       "rank": 1,
-      "previousRank": 2,
-      "pseudonym": "The Shark",
-      "points": 2450
+      "previousRank": 1,
+      "pseudonym": "Snorkfrøken",
+      "points": 83950
     },
     {
       "rank": 2,
-      "previousRank": 1,
-      "pseudonym": "Ace High",
-      "points": 2380
+      "previousRank": 2,
+      "pseudonym": "Kingpin",
+      "points": 83300
     },
     {
       "rank": 3,
       "previousRank": 3,
-      "pseudonym": "Cold Bluff",
-      "points": 2150
+      "pseudonym": "Happy",
+      "points": 81300
     },
     {
       "rank": 4,
-      "previousRank": 7,
-      "pseudonym": "River Rat",
-      "points": 1920
+      "previousRank": 4,
+      "pseudonym": "Cruze",
+      "points": 77025
     },
     {
       "rank": 5,
-      "previousRank": 4,
-      "pseudonym": "Pocket Kings",
-      "points": 1870
+      "previousRank": 5,
+      "pseudonym": "Walrus",
+      "points": 71650
     },
     {
       "rank": 6,
-      "previousRank": 5,
-      "pseudonym": "The Grinder",
-      "points": 1800
+      "previousRank": 6,
+      "pseudonym": "Sok",
+      "points": 69925
     },
     {
       "rank": 7,
-      "previousRank": 6,
-      "pseudonym": "Chip Leader",
-      "points": 1650
+      "previousRank": 7,
+      "pseudonym": "The Goass",
+      "points": 68500
     },
     {
       "rank": 8,
-      "previousRank": 9,
-      "pseudonym": "Night Owl",
-      "points": 1520
+      "previousRank": 8,
+      "pseudonym": "Lil Rice",
+      "points": 66450
     },
     {
       "rank": 9,
-      "previousRank": 8,
-      "pseudonym": "Full House",
-      "points": 1480
+      "previousRank": 9,
+      "pseudonym": "Daddy Ace",
+      "points": 65900
     },
     {
       "rank": 10,
-      "previousRank": 12,
-      "pseudonym": "Lucky Draw",
-      "points": 1350
+      "previousRank": 10,
+      "pseudonym": "Cookie monstaa",
+      "points": 63100
     },
     {
       "rank": 11,
-      "previousRank": 10,
-      "pseudonym": "Slow Roll",
-      "points": 1200
+      "previousRank": 11,
+      "pseudonym": "Katsuo",
+      "points": 61050
     },
     {
       "rank": 12,
-      "previousRank": 11,
-      "pseudonym": "All In Andy",
-      "points": 1100
+      "previousRank": 12,
+      "pseudonym": "Mr. X",
+      "points": 56400
+    },
+    {
+      "rank": 13,
+      "previousRank": 13,
+      "pseudonym": "Nako",
+      "points": 54125
+    },
+    {
+      "rank": 14,
+      "previousRank": 14,
+      "pseudonym": "Pokerface",
+      "points": 52450
+    },
+    {
+      "rank": 15,
+      "previousRank": 15,
+      "pseudonym": "The Duke",
+      "points": 51325
+    },
+    {
+      "rank": 16,
+      "previousRank": 16,
+      "pseudonym": "Whiskey",
+      "points": 50000
+    },
+    {
+      "rank": 17,
+      "previousRank": 17,
+      "pseudonym": "Kitaï",
+      "points": 48100
+    },
+    {
+      "rank": 18,
+      "previousRank": 18,
+      "pseudonym": "Lucky G",
+      "points": 47525
+    },
+    {
+      "rank": 19,
+      "previousRank": 19,
+      "pseudonym": "Fork",
+      "points": 47350
+    },
+    {
+      "rank": 20,
+      "previousRank": 20,
+      "pseudonym": "Mr. House",
+      "points": 47275
+    },
+    {
+      "rank": 21,
+      "previousRank": 21,
+      "pseudonym": "Imposter",
+      "points": 47250
+    },
+    {
+      "rank": 22,
+      "previousRank": 22,
+      "pseudonym": "Big Bear",
+      "points": 46400
+    },
+    {
+      "rank": 23,
+      "previousRank": 23,
+      "pseudonym": "Hardware",
+      "points": 45800
+    },
+    {
+      "rank": 24,
+      "previousRank": 24,
+      "pseudonym": "Peter",
+      "points": 45500
+    },
+    {
+      "rank": 25,
+      "previousRank": 25,
+      "pseudonym": "Johnny Bacon",
+      "points": 45500
+    },
+    {
+      "rank": 26,
+      "previousRank": 26,
+      "pseudonym": "Mr. CastleRidge",
+      "points": 45500
+    },
+    {
+      "rank": 27,
+      "previousRank": 27,
+      "pseudonym": "lil broke",
+      "points": 45500
+    },
+    {
+      "rank": 28,
+      "previousRank": 28,
+      "pseudonym": "Greven av Monte-Carlo",
+      "points": 45500
+    },
+    {
+      "rank": 29,
+      "previousRank": 29,
+      "pseudonym": "Gatekapital",
+      "points": 45500
+    },
+    {
+      "rank": 30,
+      "previousRank": 30,
+      "pseudonym": "John Galt",
+      "points": 45500
+    },
+    {
+      "rank": 31,
+      "previousRank": 31,
+      "pseudonym": "The French",
+      "points": 44375
+    },
+    {
+      "rank": 32,
+      "previousRank": 32,
+      "pseudonym": "Attorney",
+      "points": 43925
+    },
+    {
+      "rank": 33,
+      "previousRank": 33,
+      "pseudonym": "Bluff",
+      "points": 43800
+    },
+    {
+      "rank": 34,
+      "previousRank": 34,
+      "pseudonym": "The Artist",
+      "points": 43400
+    },
+    {
+      "rank": 35,
+      "previousRank": 35,
+      "pseudonym": "Queen's Gambit",
+      "points": 39850
+    },
+    {
+      "rank": 36,
+      "previousRank": 36,
+      "pseudonym": "Crush Boy",
+      "points": 39275
+    },
+    {
+      "rank": 37,
+      "previousRank": 37,
+      "pseudonym": "Mr. Cheng",
+      "points": 38700
+    },
+    {
+      "rank": 38,
+      "previousRank": 38,
+      "pseudonym": "Lil Teh",
+      "points": 37750
+    },
+    {
+      "rank": 39,
+      "previousRank": 39,
+      "pseudonym": "Mighty Duck",
+      "points": 37500
+    },
+    {
+      "rank": 40,
+      "previousRank": 40,
+      "pseudonym": "Iris",
+      "points": 33125
+    },
+    {
+      "rank": 41,
+      "previousRank": 41,
+      "pseudonym": "Blindspot",
+      "points": 31500
+    },
+    {
+      "rank": 42,
+      "previousRank": 42,
+      "pseudonym": "Mr. P.D.",
+      "points": 31500
+    },
+    {
+      "rank": 43,
+      "previousRank": 43,
+      "pseudonym": "Big Chips",
+      "points": 31500
+    },
+    {
+      "rank": 44,
+      "previousRank": 44,
+      "pseudonym": "Wang",
+      "points": 31500
+    },
+    {
+      "rank": 45,
+      "previousRank": 45,
+      "pseudonym": "Wildcard",
+      "points": 30825
+    },
+    {
+      "rank": 46,
+      "previousRank": 46,
+      "pseudonym": "Mr. Juice",
+      "points": 30600
+    },
+    {
+      "rank": 47,
+      "previousRank": 47,
+      "pseudonym": "Lil Zack",
+      "points": 29150
+    },
+    {
+      "rank": 48,
+      "previousRank": 48,
+      "pseudonym": "Aces",
+      "points": 28500
+    },
+    {
+      "rank": 49,
+      "previousRank": 49,
+      "pseudonym": "Forte",
+      "points": 26850
+    },
+    {
+      "rank": 50,
+      "previousRank": 50,
+      "pseudonym": "Big J",
+      "points": 26500
+    },
+    {
+      "rank": 51,
+      "previousRank": 51,
+      "pseudonym": "Las Vegas",
+      "points": 22200
+    },
+    {
+      "rank": 52,
+      "previousRank": 52,
+      "pseudonym": "Løkring",
+      "points": 21500
+    },
+    {
+      "rank": 53,
+      "previousRank": 53,
+      "pseudonym": "Black Widow",
+      "points": 18500
     }
   ]
 }

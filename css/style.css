@@ -1131,6 +1131,54 @@ ul, ol {
   background: linear-gradient(90deg, transparent, rgba(160, 72, 72, 0.25), rgba(201, 168, 76, 0.15), rgba(160, 72, 72, 0.25), transparent);
 }
 
+/* --- Banner Image --- */
+.hero__banner {
+  margin-top: var(--space-3xl);
+  position: relative;
+}
+
+.banner {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(122, 53, 53, 0.08);
+}
+
+.banner__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(0.1) contrast(1.05);
+  transition: filter 0.6s var(--ease), transform 8s var(--ease);
+}
+
+.banner:hover .banner__img {
+  filter: grayscale(0) contrast(1.1);
+  transform: scale(1.02);
+}
+
+.banner__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10, 10, 10, 0.15) 0%, transparent 30%, transparent 60%, rgba(10, 10, 10, 0.6) 100%),
+    linear-gradient(to right, rgba(122, 53, 53, 0.08), transparent 50%, rgba(122, 53, 53, 0.08));
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .hero__banner {
+    margin-top: var(--space-2xl);
+  }
+
+  .banner {
+    border-radius: var(--radius-lg);
+  }
+}
+
 /* Hero glow breathing animation */
 @keyframes heroGlow {
   0% { opacity: 0.8; transform: translateX(-50%) scale(1); }
