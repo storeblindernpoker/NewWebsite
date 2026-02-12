@@ -1,79 +1,38 @@
 [
   {
-    "id": "evt-007",
-    "title": "Poker Night #7 — The River Runs Deep",
-    "date": "2026-03-12",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "Our seventh edition of the monthly poker night. Texas Hold'em, good company, and bragging rights at stake. All skill levels welcome.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
-    "status": "upcoming"
-  },
-  {
-    "id": "evt-006",
-    "title": "Poker Night #6 — Spring Showdown",
-    "date": "2026-02-19",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "Season opener for spring 2026. Fresh rankings, fresh start. Winner takes all.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
-    "status": "upcoming"
-  },
-  {
-    "id": "evt-005",
-    "title": "Poker Night #5 — Winter Finale",
-    "date": "2025-12-05",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "Last round of the fall season. Final chance to secure your ranking before the winter break.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
-    "status": "past"
-  },
-  {
-    "id": "evt-004",
-    "title": "Poker Night #4 — All In November",
-    "date": "2025-11-14",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "The stakes get higher. November edition with special side-pot tournament for the top 6.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
-    "status": "past"
-  },
-  {
     "id": "evt-003",
-    "title": "Poker Night #3 — October Bluff",
-    "date": "2025-10-17",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "Third round in the series. Points count double for this spooky edition.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
-    "status": "past"
+    "title": "Texas Hold'em Semester Tournament Round 3",
+    "date": "2026-02-20",
+    "time": "17:00",
+    "location": "Blindern Campus, Vilhelm Bjerknes Hus, RF Kjelleren",
+    "description": "The third round of the semester-long Texas Hold'em tournament. Players are starting to accumulate points, can we see a change in the leaderboard?",
+    "status": "upcoming"
   },
   {
     "id": "evt-002",
-    "title": "Poker Night #2 — The Flop Returns",
-    "date": "2025-09-19",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
-    "description": "Second edition. New faces, bigger pots, better bluffs.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
+    "title": "Texas Hold'em Semester Tournament Round 2",
+    "date": "2026-02-06",
+    "time": "18:00",
+    "location": "Blindern Campus, Vilhelm Bjerknes Hus, RF Kjelleren",
+    "description": "The second round of the semester-long Texas Hold'em tournament. For the first time, we will play at RF Kjelleren.",
     "status": "past"
   },
   {
     "id": "evt-001",
-    "title": "Poker Night #1 — Inaugural Deal",
-    "date": "2025-08-22",
-    "time": "19:00",
-    "location": "Blindern Campus, Room 401",
+    "title": "Texas Hold'em Semester Tournament Round 1",
+    "date": "2026-01-30",
+    "time": "16:00",
+    "location": "Blindern Campus, Nils Henrik Abels Hus, Abelstua",
+    "description": "The first round of the semester-long Texas Hold'em tournament. Players will accumulate points across multiple rounds to determine the overall champion at the end of the semester.",
+    "status": "past"
+  },
+  {
+    "id": "evt-welcome",
+    "title": "Welcome Round",
+    "date": "2026-01-23",
+    "time": "16:00",
+    "location": "Blindern Campus, Nils Henrik Abels Hus, Abelstua",
     "description": "The very first Store Blindern Poker night. Where it all began.",
-    "buyIn": "100 NOK",
-    "maxPlayers": 20,
     "status": "past"
   }
 ]
